@@ -31,7 +31,7 @@
 
             loginButton.addEventListener('click', () => {loginWithMetaMask() })
          }
-    async function loginWithMetaMask() {
+        async function loginWithMetaMask() {
          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
          .catch((e) => {
              console.error(e.message)
@@ -39,16 +39,15 @@
          })
          if (!accounts) {return}
 
-         window.userWalletAddress = accounts[0]
+        window.userWalletAddress = accounts[0]
         userWallet.innerText = window.userWalletAddress
         loginButton.innerText = 'Sign out of Metamask'
 
         loginButton.removeEventListener('click', loginWithMetaMask)
         setTimeout(() => {
             loginButton.addEventListener('click', signOutOfMetaMask)
-        }, 200)
-        
-    }
+            }, 200)
+        }
     
         function signOutOfMetaMask() {
             window.userWalletAddress = null
@@ -62,15 +61,9 @@
     
         }
         
-        
-        
-        
-        
-       
-        
      window.addEventListener('DOMContentLoaded', () => {
         toggleButton()
-    });
+        });
     </script>
    
 </body>
